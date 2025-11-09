@@ -1,92 +1,119 @@
-Tomato Disease Prediction
+## Tomato Disease Prediction using Deep Learning
 
-A Machine Learning project to detect and classify diseases in tomato plants using image data. This project helps farmers and agriculturists identify plant diseases early, improving crop yield and reducing losses.
+A **Deep Learning project** that detects and classifies diseases in tomato plant leaves using image data.  
+This system enables **early disease detection**, helping farmers and agronomists take timely action to **reduce crop loss** and **improve yield**.
 
-🔍 Project Overview
+---
 
-Objective: Predict the disease type of tomato leaves from images using machine learning models.
+## Project Overview
 
-Input: Images of tomato leaves.
+**Objective:**  
+To automatically predict the disease type of tomato leaves from images using a Convolutional Neural Network (CNN).
 
-Output: Predicted disease class (e.g., Healthy, Early Blight, Late Blight, Leaf Mold, etc.).
+**Input:**  
+Images of tomato leaves.
 
-Benefits:
+**Output:**  
+Predicted disease class such as:  
+- **Healthy**  
+- **Early Blight**  
+- **Late Blight**  
+- **Leaf Mold**  
+- *(and more, depending on dataset categories)*
 
-Early detection of tomato diseases
+**Key Benefits:**
+- Enables **early detection** of tomato diseases.  
+- Assists farmers in **taking preventive actions**.  
+- Minimizes **economic losses** and boosts productivity.
 
-Helps farmers take preventive measures
+---
 
-Reduces crop loss and improves yield
+## Dataset
 
-📁 Dataset
+- The dataset consists of labeled images of tomato leaves.  
+- Each class corresponds to a specific tomato disease or healthy leaf.  
+- **Source:** [PlantVillage Dataset](https://www.kaggle.com/datasets/emmarex/plantdisease) *(or mention if custom)*  
+- **Structure:**
+  ```
+  Tomato_Cases/
+  ├── Healthy/
+  ├── Early_Blight/
+  ├── Late_Blight/
+  └── Leaf_Mold/
+  ```
 
-The dataset consists of labeled images of tomato leaves.
+---
 
-Categories include various tomato diseases and healthy leaves.
+## Methodology
 
-Dataset source: [Specify if it's custom or from a public repository like PlantVillage]
+1. **Data Loading:**  
+   Used `tf.keras.preprocessing.image_dataset_from_directory()` to load images directly from folders.
 
-🛠️ Technologies Used
+2. **Preprocessing & Augmentation:**  
+   Applied layers for improved generalization:  
+   - Random Flip  
+   - Random Rotation  
+   - Random Zoom  
+   - Random Contrast  
+   - Random Translation  
+   - Resizing & Rescaling  
 
-Python 3.x
+3. **Model Architecture (Custom CNN):**
+   ```
+   Rescaling → Conv2D → MaxPooling2D → Conv2D → MaxPooling2D → Flatten → Dense → Dense (Softmax)
+   ```
+   - Built using **Keras Sequential API**.  
+   - Tuned for 50 epochs with **Adam optimizer** and **categorical cross-entropy loss**.
 
-Libraries:
+4. **Training:**  
+   - Batch Size: 32  
+   - Image Size: 256×256×3  
+   - Epochs: 50  
+   - Validation Split: [Insert %]  
+   - Monitored accuracy and loss curves during training.
 
-TensorFlow / Keras
+5. **Evaluation:**  
+   - Tested on unseen data using `model.evaluate()`  
+   - Visualized **Confusion Matrix**, **Accuracy**, and **Loss Curves**.
 
-OpenCV
+---
 
-NumPy
+## Results
 
-Pandas
+| Metric | Result |
+|--------|---------|
+| **Training Accuracy** | [97.22]% |
+| **Validation Accuracy** | [89.63]% |
+| **Test Accuracy** | [90.81]% |
+| **Loss** | [0.0821] |
 
-Matplotlib / Seaborn
+**Visualization:** 
+- Accuracy vs. Epochs  
+- Loss vs. Epochs
+- <img width="826" height="834" alt="image" src="https://github.com/user-attachments/assets/47d1f4dc-b0be-4047-b5f9-cc56e6a9f8c4" />
 
-Machine Learning Concepts:
+---
 
-Convolutional Neural Networks (CNN)
+## Technologies Used
 
-Image preprocessing and augmentation
+**Libraries & Frameworks:**
+- TensorFlow / Keras  
+- NumPy  
+- Pandas  
+- Matplotlib / Seaborn  
 
-Model evaluation metrics (Accuracy, Confusion Matrix)
+**Machine Learning Concepts:**
+- Convolutional Neural Networks (CNN)  
+- Image Preprocessing & Augmentation  
+- Model Evaluation (Accuracy, Confusion Matrix)
+
+## Future Work
+
+- Integrate with a **real-time detection system** using a webcam or mobile app.  
+- Experiment with **Transfer Learning** using pre-trained models like ResNet, EfficientNet, or MobileNet.  
+- Deploy the model as a **web dashboard or mobile API**.  
+- Expand dataset to include more tomato species and leaf conditions.
 
 
-
-
-
-
-Model Training
-
-Load and preprocess the dataset.
-
-Perform data augmentation to increase dataset variability.
-
-Split dataset into training and testing sets.
-
-Build a CNN model using Keras.
-
-Train the model and monitor performance using validation accuracy.
-
-Evaluate model performance on test data.
-
-📊 Results
-
-Achieved [insert accuracy]% accuracy on test data.
-
-Confusion matrix visualized for model evaluation.
-
-Future Work
-
-Integrate a real-time disease detection system using a mobile app or camera.
-
-Expand the dataset to include more tomato varieties and diseases.
-
-Experiment with transfer learning using pre-trained models like ResNet or EfficientNet.
-
-📄 References
-
-PlantVillage Dataset
-
-Keras and TensorFlow official documentation
-Model able to correctly classify multiple tomato diseases and healthy leaves.
+---
 
