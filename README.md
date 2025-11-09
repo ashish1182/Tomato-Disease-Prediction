@@ -69,9 +69,9 @@ Predicted disease class such as:
    - Batch Size: 32  
    - Image Size: 256×256×3  
    - Epochs: 50  
-   - Validation Split: [10%]
-   - Test Split: [10%]
-   - Train Split: [8%]
+   - Validation Split: 10%
+   - Test Split: 10%
+   - Train Split: 8%
    - Monitored accuracy and loss curves during training.
 
 5. **Evaluation:**  
