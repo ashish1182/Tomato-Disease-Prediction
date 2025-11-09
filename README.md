@@ -84,10 +84,10 @@ Predicted disease class such as:
 
 | Metric | Result |
 |--------|---------|
-| **Training Accuracy** | [97.22]% |
-| **Validation Accuracy** | [89.63]% |
-| **Test Accuracy** | [90.81]% |
-| **Loss** | [0.0821] |
+| **Training Accuracy** | 97.22% |
+| **Validation Accuracy** | 89.63% |
+| **Test Accuracy** | 90.81% |
+| **Loss** | 0.0821 |
 
 **Visualization:** 
 - Accuracy vs. Epochs  
